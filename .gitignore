@@ -1,0 +1,8 @@
+.roblox-forge/
+node_modules/
+.DS_Store
+*.tmp
+
+# Generated per-machine install artifacts
+cordis.patch.yml
+.install-state.json

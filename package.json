@@ -1,0 +1,50 @@
+{
+  "name": "roblox-forge",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "description": "Quality-gated AI game studio for Roblox Studio. Runs on Claude Code, DeepSeek Harness, Mistral Vibe and any Agent Skills harness.",
+  "scripts": {
+    "test": "node --test",
+    "install": "node scripts/install-harness.mjs --harness auto"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT",
+  "exports": {
+    ".": "./scripts/studio-mcp.mjs",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "files": [
+    ".claude-plugin",
+    ".mcp.json",
+    "agents",
+    "docs",
+    "hooks",
+    "icon.svg",
+    "locale",
+    "scripts",
+    "skills",
+    "README.md",
+    "README.pt-BR.md",
+    "LICENSE"
+  ],
+  "homepage": "https://github.com/luisinluisao/roblox-forge",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/luisinluisao/roblox-forge.git"
+  },
+  "bugs": {
+    "url": "https://github.com/luisinluisao/roblox-forge/issues"
+  },
+  "bin": {
+    "roblox-forge-install": "./scripts/install-harness.mjs"
+  }
+}

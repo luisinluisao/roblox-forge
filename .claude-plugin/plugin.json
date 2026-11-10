@@ -1,0 +1,23 @@
+{
+  "name": "roblox-forge",
+  "version": "0.2.0",
+  "description": "Quality-gated AI game studio for Roblox Studio: a director, specialist agents and expert skills that build, playtest, screenshot-critique and polish a game until every gate passes. Installs into Claude Code, DeepSeek Harness, Mistral Vibe and generic Agent Skills harnesses.",
+  "author": {
+    "name": "Luis"
+  },
+  "homepage": "https://github.com/luisinluisao/roblox-forge",
+  "repository": "https://github.com/luisinluisao/roblox-forge",
+  "license": "MIT",
+  "keywords": [
+    "roblox",
+    "roblox-studio",
+    "luau",
+    "game-development",
+    "mcp",
+    "agents",
+    "qa",
+    "harness",
+    "deepseek-harness",
+    "mistral-vibe"
+  ]
+}

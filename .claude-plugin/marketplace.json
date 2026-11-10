@@ -1,0 +1,17 @@
+{
+  "name": "roblox-forge-marketplace",
+  "owner": {
+    "name": "luisinluisao",
+    "url": "https://github.com/luisinluisao/roblox-forge"
+  },
+  "plugins": [
+    {
+      "name": "roblox-forge",
+      "source": "./",
+      "description": "Quality-gated AI game studio for Roblox Studio with a multi-harness installer.",
+      "version": "0.2.0",
+      "category": "game-development",
+      "homepage": "https://github.com/luisinluisao/roblox-forge"
+    }
+  ]
+}

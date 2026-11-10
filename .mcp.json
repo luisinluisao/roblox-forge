@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "Roblox_Studio": {
+      "command": "node",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/scripts/studio-mcp.mjs"]
+    }
+  }
+}

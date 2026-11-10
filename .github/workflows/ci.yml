@@ -1,0 +1,25 @@
+name: ci
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - name: Validate JSON manifests
+        run: |
+          for f in .claude-plugin/plugin.json .claude-plugin/marketplace.json .mcp.json hooks/hooks.json package.json; do node -e "JSON.parse(require('fs').readFileSync('$f','utf8'))" && echo "ok $f"; done
+      - name: Syntax-check scripts
+        run: for f in scripts/*.mjs scripts/lib/*.mjs; do node --check "$f"; done
+      - run: npm test
+      - name: Installer dry run for every harness
+        run: |
+          HOME_DIR="$(mktemp -d)"
+          node scripts/install-harness.mjs --harness all --home "$HOME_DIR" --dry-run --json > "$HOME_DIR/plan.json"
+          node -e "const p=require('$HOME_DIR/plan.json'); if (p.plan.writes.length < 10) process.exit(1); if (!p.plan.commands.length) process.exit(1)"
+      - name: Luau syntax check
+        run: |
+          curl -sL -o luau.zip https://github.com/luau-lang/luau/releases/download/0.746/luau-ubuntu.zip
+          unzip -q luau.zip && chmod +x luau-analyze
+          for f in skills/playtest-protocol/*.luau; do ./luau-analyze "$f" | grep -i SyntaxError && exit 1 || true; done
